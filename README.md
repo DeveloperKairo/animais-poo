@@ -50,7 +50,27 @@ python main.py
 2.  **Listar Animais**: Veja todos os animais presentes no zoológico.
     - _Nota_: O sistema já inicia com alguns animais de exemplo (Simba, Dumbo, etc.).
 3.  **Ouvir Animais (Polimorfismo)**: Faz todos os animais emitirem seus sons característicos.
-4.  **Ações Específicas**: Demonstração de verificação de tipos (`isinstance`), onde Aves voam, Répteis tomam sol, etc.
+4.  **Ouvir Animais (Polimorfismo)**: Faz todos os animais emitirem seus sons característicos.
+5.  **Ações Específicas (Diagrama UML)**: Executa comportamentos exclusivos de cada espécie, conforme definido no diagrama UML:
+    - **Leão**: Caça presas (se tiver juba).
+    - **Cobra**: Troca de pele (se for venenosa).
+    - **Papagaio**: Repete frases.
+    - **Ave**: Voa.
+    - **Reptil**: Toma sol.
+    - **Mamifero**: Amamenta.
+
+## 📐 Alinhamento com UML
+
+O código segue estritamente um diagrama de classes proposto, implementando:
+
+- **Animal**: Atributos `nome`, `idade`, `especie` e métodos `comer()`, `dormir()`, `emitir_som()`.
+- **Mamifero**: Atributo `cor_pelo`.
+  - **Leao**: Atributo `tem_juba` e método `cacar()`.
+  - **Elefante**: Atributo `tamanho_tromba`.
+- **Reptil**: Atributo `temperatura_corporal`.
+  - **Cobra**: Atributo `venenosa` e método `trocar_pele()`.
+- **Ave**: Atributo `tipo_bico`.
+  - **Papagaio**: Método `repetir_frase()`.
 
 ---
 
