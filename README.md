@@ -61,15 +61,16 @@ python main.py
 
 ## 📐 Alinhamento com UML
 
-O código segue estritamente um diagrama de classes proposto, implementando:
+O código segue estritamente o diagrama de classes proposto (disponível em `docs/Zoologico.drawio.png`), implementando:
 
 - **Animal**: Atributos `nome`, `idade`, `especie` e métodos `comer()`, `dormir()`, `emitir_som()`.
-- **Mamifero**: Atributo `cor_pelo`.
+
+* **Mamifero**: Atributo `cor_pelo`.
   - **Leao**: Atributo `tem_juba` e método `cacar()`.
   - **Elefante**: Atributo `tamanho_tromba`.
-- **Reptil**: Atributo `temperatura_corporal`.
+* **Reptil**: Atributo `temperatura_corporal`.
   - **Cobra**: Atributo `venenosa` e método `trocar_pele()`.
-- **Ave**: Atributo `tipo_bico`.
+* **Ave**: Atributo `tipo_bico`.
   - **Papagaio**: Método `repetir_frase()`.
 
 ---
