@@ -15,7 +15,7 @@ def menu_adicionar_animal(zoo: SistemaZoologico):
     print("1. Leão")
     print("2. Cobra")
     print("3. Papagaio")
-    print("0. Voltar") # Added option to go back safely
+    print("0. Voltar") 
     
     tipo = input("Qual espécie deseja adicionar? ")
     
@@ -23,14 +23,26 @@ def menu_adicionar_animal(zoo: SistemaZoologico):
         return
 
     nome = input("Digite o nome do animal: ")
+    # Perguntamos a idade agora, pois é atributo obrigatório
+    try:
+        idade = int(input("Digite a idade do animal: "))
+    except ValueError:
+        print("Idade inválida! Usando 0.")
+        idade = 0
+        
     novo_animal = None
 
     if tipo == "1":
-        novo_animal = Leao(nome)
+        # Leão precisa de (nome, idade, tem_juba)
+        tem_juba = input("O leão tem juba? (s/n): ").lower() == 's'
+        novo_animal = Leao(nome, idade, tem_juba)
     elif tipo == "2":
-        novo_animal = Cobra(nome)
+        # Cobra precisa de (nome, idade, venenosa)
+        venenosa = input("A cobra é venenosa? (s/n): ").lower() == 's'
+        novo_animal = Cobra(nome, idade, venenosa)
     elif tipo == "3":
-        novo_animal = Papagaio(nome)
+        # Papagaio precisa de (nome, idade)
+        novo_animal = Papagaio(nome, idade)
     else:
         print("Espécie inválida! Animal não criado.")
         pausar()
@@ -46,11 +58,12 @@ def main():
 
     # --- POPULANDO O ZOO COM EXEMPLOS ---
     print("Populando o zoológico com animais padrão...")
-    meu_zoo.adicionar_animal(Leao("Simba"))
-    meu_zoo.adicionar_animal(Elefante("Dumbo"))
-    meu_zoo.adicionar_animal(Cobra("Nagini"))
-    meu_zoo.adicionar_animal(Papagaio("Zé Carioca"))
-    time.sleep(1) # Pequena pausa para o usuário ver
+    # Atualizado com novos construtores
+    meu_zoo.adicionar_animal(Leao("Simba", 5, True))
+    meu_zoo.adicionar_animal(Elefante("Dumbo", 10, 2.5))
+    meu_zoo.adicionar_animal(Cobra("Nagini", 3, True))
+    meu_zoo.adicionar_animal(Papagaio("Zé Carioca", 15))
+    time.sleep(1) 
     # ------------------------------------
     continuar = True
 
@@ -62,7 +75,7 @@ def main():
         print("1. Adicionar Animal")
         print("2. Listar Animais na Jaula")
         print("3. Ouvir todos os animais (Polimorfismo)")
-        print("4. Executar Ações Específicas (Voar/Nadar)")
+        print("4. Executar Ações Específicas (UML Methods)")
         print("0. Sair")
         print("=======================================")
         
